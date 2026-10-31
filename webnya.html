@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Datang | M. Riadi</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f4;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        header {
+            background-color: #1f4d3a;
+            color: white;
+            padding: 15px  30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            position: sticky;
+            top: 0;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a:hover {
+            color: #f2b632;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #1f4d3a;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            color: #1f4d3a;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 3px solid #f2b632;
+        }
+
+        .profil {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .foto {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background-color: #f2b632;
+            color: #1f4d3a;
+            font-size: 40px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .profil h3 {
+            font-size: 26px;
+            color: #1f4d3a;
+        }
+
+        .jurusan {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .data {
+            margin-top: 12px;
+        }
+
+        .data p {
+            font-size: 14px;
+        }
+
+        .keahlian {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keahlian li {
+            background-color: #e3efe8;
+            color: #1f4d3a;
+            padding: 6px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .kartu {
+            background-color: white;
+            border: 1px solid #d5ddd7;
+            border-top: 5px solid #f2b632;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .kartu:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .kartu h3 {
+            color: #1f4d3a;
+            margin: 5px 0;
+        }
+
+        .label {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .jenis {
+            margin-top: 10px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #1f4d3a;
+        }
+
+        .kartu ol {
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+
+        footer {
+            background-color: #1f4d3a;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        footer ul {
+            display: flex;
+            gap: 15px;
+        }
+
+        footer a:hover {
+            color: #f2b632;
+        }
+
+        @media (max-width: 600px) {
+            header, footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profil {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 1024px) {
+            h1 {
+                font-size: 28px;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            header, footer {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="#kampus" class="logo">M. Riadi</a>
+        <nav>
+            <ul>
+                <li><a href="#kampus">Kampus</a></li>
+                <li><a href="#berita">Berita</a></li>
+                <li><a href="#profil">Profil</a></li>
+                <li><a href="#keahlian">Keahlian</a></li>
+                <li><a href="#proyek">Proyek</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="kampus">
+            <h1>SELAMAT DATANG di kampus tercinta</h1>
+            <p>Berikut gambaran singkat perjalanan sebagai mahasiswa.</p>
+        </section>
+
+        <section id="berita">
+            <h2>Mahasiswa dan Berita</h2>
+            <div class="grid">
+                <article class="kartu">
+                    <p class="label">Mahasiswa</p>
+                    <h3>Perkenalan Kampus</h3>
+                    <p>Prodi:</p>
+                    <ol>
+                        <li>Perkenalan jurusan.</li>
+                        <li>Perkenalan diri.</li>
+                        <li>Masuk jam kelas.</li>
+                        <li>Pelajaran mata kuliah.</li>
+                        <li>Selesaikan mata kuliah.</li>
+                    </ol>
+                </article>
+
+                <article class="kartu">
+                    <p class="label"></p>
+                    <h3></h3>
+                    <p>Isi berita 2...</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="profil" class="profil">
+            <div class="foto">MR</div>
+            <div>
+                <h3>Halo, saya M. Riadi</h3>
+                <p class="jurusan">Mahasiswa Universitas Yudharta Pasuruan</p>
+                <p>
+                    Saya sedang belajar pengembangan web dan tertarik membuat
+                    tampilan yang rapi, cepat, dan nyaman dibuka di HP. Halaman
+                    ini berisi proyek yang saya kerjakan selama kuliah dan praktikum.
+                </p>
+                <div class="data">
+                    <p>Nama: M. Riadi</p>
+                    <p>NIM: 52</p>
+                    <p>Kampus: Universitas Yudharta Pasuruan</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="keahlian">
+            <h2>Keahlian</h2>
+            <ul class="keahlian">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>Flexbox</li>
+                <li>CSS Grid</li>
+                <li>JavaScript dasar</li>
+                <li>Git &amp; GitHub</li>
+            </ul>
+        </section>
+
+        <section id="proyek">
+            <h2>Proyek Kuliah</h2>
+            <div class="grid">
+                <article class="kartu">
+                    <p class="label">Pemrograman Web</p>
+                    <h3>Halaman Profil Semantik</h3>
+                    <p>membuat struktur halaman dengan tag semantik HTML5.</p>
+                    <p class="jenis"> - HTML</p>
+                </article>
+
+                <article class="kartu">
+                    <p class="label">Pemrograman Web</p>
+                    <h3>Landing Page Responsif</h3>
+                    <p>Tampilan yang menyesuaikan layar mobile, tablet, dan desktop memakai media query.</p>
+                    <p class="jenis"> - CSS</p>
+                </article>
+
+                <article class="kartu">
+                    <p class="label">Basis Data</p>
+                    <h3>Sistem Data Perpustakaan</h3>
+                    <p>Perancangan tabel, relasi, dan query untuk peminjaman buku kampus.</p>
+                    <p class="jenis"> - MySQL</p>
+                </article>
+
+                <article class="kartu">
+                    <p class="label">Algoritma</p>
+                    <h3>Kalkulator Nilai Akhir</h3>
+                    <p>Program sederhana untuk menghitung nilai tugas, UTS, dan UAS.</p>
+                    <p class="jenis"> - Python</p>
+                </article>
+
+                <article class="kartu">
+                    <p class="label">Proyek Kelompok</p>
+                    <h3>Website Himpunan Mahasiswa</h3>
+                    <p>Situs informasi kegiatan himpunan, dikerjakan bersama teman satu kelas.</p>
+                    <p class="jenis">Kelompok - Tim</p>
+                </article>
+
+                <article class="kartu">
+                    <p class="label">Mandiri</p>
+                    <h3>Daftar Tugas Harian</h3>
+                    <p>Aplikasi to-do list untuk mencatat jadwal kuliah dan deadline tugas.</p>
+                    <p class="jenis"> - JavaScript</p>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="kontak">
+        <p>&copy; 2026 M. Riadi (NIM 52) - Universitas Yudharta Pasuruan</p>
+        <ul>
+            <li><a href="mailto:email@contoh.com">Email</a></li>
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">LinkedIn</a></li>
+        </ul>
+    </footer>
+
+</body>
+</html>
