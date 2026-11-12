@@ -1,0 +1,42 @@
+// Live Demo Code: TodoApp.vue
+<script setup>
+import { ref } from "vue"
+
+const teksBaru = ref("")
+const tasks = ref([
+  { id: 1, judul: "Pelajari Sintaks Composition API", selesai: true },
+  { id: 2, judul: "Setup Proyek Vite Vue 3", selesai: false }
+])
+
+const tambahTask = () => {
+  if (!teksBaru.value.trim())S
+  tasks.value.push({
+    id: Date.now(),
+    judul: teksBaru.value.trim(),
+    selesai: false
+  })
+  teksBaru.value = ""
+}
+
+const hapusTask = (id) => {
+  tasks.value = tasks.value.filter(t => t.id !== id)
+}
+</script>
+
+<template>
+  <div class="todo-wrapper">
+    <h3>Daftar Tugas Praktikum</h3>
+    <form @submit.prevent="tambahTask">
+      <input v-model="teksBaru" placeholder="Tuliskan tugas baru..." />
+      <button type="submit">Tambah</button>
+    </form>
+
+    <ul>
+      <li v-for="task in tasks" :key="task.id">
+        <input type="checkbox" v-model="task.selesai" />
+        <span :class="{ line_through: task.selesai }">{{ task.judul }}</span>
+        <button @click="hapusTask(task.id)">x</button>
+      </li>
+    </ul>
+  </div>
+</template>
