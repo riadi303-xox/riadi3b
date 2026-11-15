@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Katalog saya</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/vue-demi@0.14.10/lib/index.iife.js"></script>
+  <script src="https://unpkg.com/pinia@2/dist/pinia.iife.js"></script>
+  <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.js"></script>
+  <style>
+    body { font-family: Arial; margin: 20px }
+    .card { display: inline-block; border: 1px solid #ccc; padding: 12px; margin: 8px; width: 180px; text-align: center }
+  </style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const { createApp } = Vue
+const { createRouter, createWebHashHistory } = VueRouter
+const { createPinia, defineStore } = Pinia
+
+const useCartStore = defineStore('cart', {
+  state: () => ({ items: [] }),
+  getters: {
+    jumlah: s => s.items.reduce((a, i) => a + i.qty, 0),
+    total: s => s.items.reduce((a, i) => a + i.harga * i.qty, 0)
+  },
+  actions: {
+    tambah(p) {
+      const ada = this.items.find(i => i.id === p.id)
+      ada ? ada.qty++ : this.items.push({ ...p, qty: 1 })
+    }
+  }
+})
+
+const ProductCard = {
+  props: ['produk'],
+  setup: () => ({ cart: useCartStore() }),
+  template: `
+    <div class="card">
+      <h3>{{ produk.nama }}</h3>
+      <p>Rp {{ produk.harga.toLocaleString('id-ID') }}</p>
+      <button @click="cart.tambah(produk)">Beli</button>
+    </div>`
+}
+
+const Beranda = {
+  components: { ProductCard },
+  data: () => ({
+    produk: [
+      { id: 1, nama: 'Laptop', harga: 12500000 },
+      { id: 2, nama: 'Headphone', harga: 750000 },
+      { id: 3, nama: 'Mouse', harga: 250000 }
+    ]
+  }),
+  template: `
+    <h1>Katalog Produk</h1>
+    <ProductCard v-for="p in produk" :key="p.id" :produk="p" />`
+}
+
+const Keranjang = {
+  setup: () => ({ cart: useCartStore() }),
+  template: `
+    <h1>Keranjang Belanja</h1>
+    <p v-if="!cart.items.length">Keranjang masih kosong.</p>
+    <ul>
+      <li v-for="i in cart.items" :key="i.id">{{ i.nama }} x {{ i.qty }}</li>
+    </ul>
+    <h3 v-if="cart.items.length">Total: Rp {{ cart.total.toLocaleString('id-ID') }}</h3>`
+}
+
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes: [
+    { path: '/', component: Beranda },
+    { path: '/cart', component: Keranjang }
+  ]
+})
+
+createApp({
+  setup: () => ({ cart: useCartStore() }),
+  template: `
+    <nav>
+      <router-link to="/">Beranda</router-link> |
+      <router-link to="/cart">Keranjang ({{ cart.jumlah }})</router-link>
+    </nav>
+    <hr>
+    <router-view />`
+}).use(createPinia()).use(router).mount('#app')
+</script>
+</body>
+</html>
